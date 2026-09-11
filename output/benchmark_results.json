@@ -1,0 +1,9 @@
+{
+  "total_images": 30,
+  "mean_latency_ms": 13.56,
+  "min_latency_ms": 12.25,
+  "max_latency_ms": 14.92,
+  "p95_latency_ms": 14.6,
+  "throughput_fps": 73.77,
+  "resolution": "640x480"
+}

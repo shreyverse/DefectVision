@@ -1,0 +1,41 @@
+{
+  "mean_iou": 0.6341,
+  "classification": {
+    "overall_accuracy": 0.85,
+    "macro_f1": 0.8421,
+    "total_samples": 20,
+    "classes": {
+      "CRACK": {
+        "precision": 0.6667,
+        "recall": 0.5,
+        "f1_score": 0.5714,
+        "support": 4
+      },
+      "DEFECT_FREE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 4
+      },
+      "PINHOLE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 4
+      },
+      "SCRATCH": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1_score": 0.75,
+        "support": 4
+      },
+      "STAIN": {
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1_score": 0.8889,
+        "support": 4
+      }
+    }
+  },
+  "sample_count": 20
+}

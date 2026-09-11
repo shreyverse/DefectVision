@@ -1,0 +1,64 @@
+[
+  {
+    "image_path": "data/samples/sample_scratch.png",
+    "dimensions": {
+      "height": 480,
+      "width": 640
+    },
+    "timestamp": "2026-09-11T15:41:02.043465",
+    "total_defects": 1,
+    "is_defective": true,
+    "max_severity": "MINOR",
+    "execution_time_ms": 28.74,
+    "defect_summary": {
+      "SCRATCH": 1
+    },
+    "regions": [
+      {
+        "region_id": 1,
+        "bbox": [
+          161,
+          142,
+          129,
+          30
+        ],
+        "centroid": [
+          223,
+          156
+        ],
+        "defect_type": "SCRATCH",
+        "confidence": 0.98,
+        "severity": "MINOR",
+        "geometry": {
+          "area": 228.5,
+          "perimeter": 286.61,
+          "circularity": 0.035,
+          "aspect_ratio": 4.3,
+          "solidity": 0.6277,
+          "extent": 0.059,
+          "equivalent_diameter": 17.06,
+          "mean_intensity": 138.06,
+          "min_intensity": 30.0,
+          "hu_moments": [
+            -0.797462,
+            -1.594497,
+            0.284664,
+            0.284966,
+            0.569781,
+            -0.51225,
+            -5.469009
+          ]
+        },
+        "texture": {
+          "glcm_contrast": 31.955,
+          "glcm_dissimilarity": 2.5179,
+          "glcm_homogeneity": 0.505,
+          "glcm_energy": 0.2184,
+          "glcm_correlation": 0.215,
+          "gabor_mean_energy": 2728.6035,
+          "gabor_variance": 23391.2305
+        }
+      }
+    ]
+  }
+]

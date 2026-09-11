@@ -1,0 +1,309 @@
+[
+  {
+    "image_path": "data/samples\\sample_crack.png",
+    "dimensions": {
+      "height": 480,
+      "width": 640
+    },
+    "timestamp": "2026-09-11T15:32:42.876176",
+    "total_defects": 1,
+    "is_defective": true,
+    "max_severity": "MODERATE",
+    "execution_time_ms": 34.47,
+    "defect_summary": {
+      "CRACK": 1
+    },
+    "regions": [
+      {
+        "region_id": 1,
+        "bbox": [
+          414,
+          186,
+          49,
+          51
+        ],
+        "centroid": [
+          440,
+          220
+        ],
+        "defect_type": "CRACK",
+        "confidence": 0.8901,
+        "severity": "MODERATE",
+        "geometry": {
+          "area": 839.5,
+          "perimeter": 170.47,
+          "circularity": 0.363,
+          "aspect_ratio": 1.0408,
+          "solidity": 0.6533,
+          "extent": 0.3359,
+          "equivalent_diameter": 32.69,
+          "mean_intensity": 98.14,
+          "min_intensity": 23.0,
+          "hu_moments": [
+            0.519922,
+            1.478685,
+            1.620264,
+            1.872436,
+            3.624511,
+            2.694351,
+            -4.411119
+          ]
+        },
+        "texture": {
+          "glcm_contrast": 26.774,
+          "glcm_dissimilarity": 2.65,
+          "glcm_homogeneity": 0.4744,
+          "glcm_energy": 0.1726,
+          "glcm_correlation": 0.6102,
+          "gabor_mean_energy": 2334.4824,
+          "gabor_variance": 120340.7109
+        }
+      }
+    ]
+  },
+  {
+    "image_path": "data/samples\\sample_defect_free.png",
+    "dimensions": {
+      "height": 480,
+      "width": 640
+    },
+    "timestamp": "2026-09-11T15:32:42.965780",
+    "total_defects": 0,
+    "is_defective": false,
+    "max_severity": "NEGLIGIBLE",
+    "execution_time_ms": 19.17,
+    "defect_summary": {},
+    "regions": []
+  },
+  {
+    "image_path": "data/samples\\sample_pinhole.png",
+    "dimensions": {
+      "height": 480,
+      "width": 640
+    },
+    "timestamp": "2026-09-11T15:32:43.041091",
+    "total_defects": 1,
+    "is_defective": true,
+    "max_severity": "MINOR",
+    "execution_time_ms": 26.4,
+    "defect_summary": {
+      "PINHOLE": 1
+    },
+    "regions": [
+      {
+        "region_id": 1,
+        "bbox": [
+          269,
+          154,
+          16,
+          16
+        ],
+        "centroid": [
+          276,
+          161
+        ],
+        "defect_type": "PINHOLE",
+        "confidence": 0.9496,
+        "severity": "MINOR",
+        "geometry": {
+          "area": 173.0,
+          "perimeter": 50.63,
+          "circularity": 0.8482,
+          "aspect_ratio": 1.0,
+          "solidity": 0.9558,
+          "extent": 0.6758,
+          "equivalent_diameter": 14.84,
+          "mean_intensity": 33.38,
+          "min_intensity": 20.0,
+          "hu_moments": [
+            0.796452,
+            6.417977,
+            5.1892,
+            7.888408,
+            0.0,
+            -11.097397,
+            0.0
+          ]
+        },
+        "texture": {
+          "glcm_contrast": 44.7663,
+          "glcm_dissimilarity": 2.9624,
+          "glcm_homogeneity": 0.5968,
+          "glcm_energy": 0.3067,
+          "glcm_correlation": 0.7436,
+          "gabor_mean_energy": 2209.354,
+          "gabor_variance": 781154.0
+        }
+      }
+    ]
+  },
+  {
+    "image_path": "data/samples\\sample_scratch.png",
+    "dimensions": {
+      "height": 480,
+      "width": 640
+    },
+    "timestamp": "2026-09-11T15:32:43.125203",
+    "total_defects": 1,
+    "is_defective": true,
+    "max_severity": "MINOR",
+    "execution_time_ms": 26.76,
+    "defect_summary": {
+      "SCRATCH": 1
+    },
+    "regions": [
+      {
+        "region_id": 1,
+        "bbox": [
+          161,
+          142,
+          129,
+          30
+        ],
+        "centroid": [
+          223,
+          156
+        ],
+        "defect_type": "SCRATCH",
+        "confidence": 0.98,
+        "severity": "MINOR",
+        "geometry": {
+          "area": 228.5,
+          "perimeter": 286.61,
+          "circularity": 0.035,
+          "aspect_ratio": 4.3,
+          "solidity": 0.6277,
+          "extent": 0.059,
+          "equivalent_diameter": 17.06,
+          "mean_intensity": 138.06,
+          "min_intensity": 30.0,
+          "hu_moments": [
+            -0.797462,
+            -1.594497,
+            0.284664,
+            0.284966,
+            0.569781,
+            -0.51225,
+            -5.469009
+          ]
+        },
+        "texture": {
+          "glcm_contrast": 31.955,
+          "glcm_dissimilarity": 2.5179,
+          "glcm_homogeneity": 0.505,
+          "glcm_energy": 0.2184,
+          "glcm_correlation": 0.215,
+          "gabor_mean_energy": 2728.6035,
+          "gabor_variance": 23391.2305
+        }
+      }
+    ]
+  },
+  {
+    "image_path": "data/samples\\sample_stain.png",
+    "dimensions": {
+      "height": 480,
+      "width": 640
+    },
+    "timestamp": "2026-09-11T15:32:43.203274",
+    "total_defects": 2,
+    "is_defective": true,
+    "max_severity": "MINOR",
+    "execution_time_ms": 24.92,
+    "defect_summary": {
+      "STAIN": 2
+    },
+    "regions": [
+      {
+        "region_id": 1,
+        "bbox": [
+          224,
+          315,
+          27,
+          21
+        ],
+        "centroid": [
+          236,
+          324
+        ],
+        "defect_type": "STAIN",
+        "confidence": 0.85,
+        "severity": "MINOR",
+        "geometry": {
+          "area": 357.0,
+          "perimeter": 85.6,
+          "circularity": 0.6123,
+          "aspect_ratio": 1.2857,
+          "solidity": 0.8761,
+          "extent": 0.6296,
+          "equivalent_diameter": 21.32,
+          "mean_intensity": 94.65,
+          "min_intensity": 72.0,
+          "hu_moments": [
+            0.754356,
+            2.573294,
+            3.596626,
+            4.782708,
+            9.315414,
+            6.293048,
+            9.022472
+          ]
+        },
+        "texture": {
+          "glcm_contrast": 3.3809,
+          "glcm_dissimilarity": 1.3648,
+          "glcm_homogeneity": 0.4991,
+          "glcm_energy": 0.1586,
+          "glcm_correlation": 0.769,
+          "gabor_mean_energy": 1668.5135,
+          "gabor_variance": 76877.0547
+        }
+      },
+      {
+        "region_id": 2,
+        "bbox": [
+          240,
+          284,
+          20,
+          15
+        ],
+        "centroid": [
+          250,
+          290
+        ],
+        "defect_type": "STAIN",
+        "confidence": 0.85,
+        "severity": "MINOR",
+        "geometry": {
+          "area": 161.0,
+          "perimeter": 58.28,
+          "circularity": 0.5956,
+          "aspect_ratio": 1.3333,
+          "solidity": 0.8633,
+          "extent": 0.5367,
+          "equivalent_diameter": 14.32,
+          "mean_intensity": 98.88,
+          "min_intensity": 89.0,
+          "hu_moments": [
+            0.719085,
+            2.380156,
+            2.800603,
+            4.193473,
+            8.717175,
+            5.611106,
+            7.692441
+          ]
+        },
+        "texture": {
+          "glcm_contrast": 1.5034,
+          "glcm_dissimilarity": 0.8891,
+          "glcm_homogeneity": 0.6156,
+          "glcm_energy": 0.2392,
+          "glcm_correlation": 0.7957,
+          "gabor_mean_energy": 1681.0452,
+          "gabor_variance": 36534.6758
+        }
+      }
+    ]
+  }
+]
