@@ -1,5 +1,5 @@
 ﻿"""
-Configuration management for SurfaceVision pipeline.
+Configuration management for DefectVision pipeline.
 """
 from dataclasses import dataclass, field
 from typing import Tuple, List, Dict, Any
@@ -46,7 +46,7 @@ class SegmentationConfig:
 
 @dataclass
 class InspectionConfig:
-    """Master configuration container for SurfaceVision."""
+    """Master configuration container for DefectVision."""
     preprocessing: PreprocessingConfig = field(default_factory=PreprocessingConfig)
     features: FeatureConfig = field(default_factory=FeatureConfig)
     segmentation: SegmentationConfig = field(default_factory=SegmentationConfig)

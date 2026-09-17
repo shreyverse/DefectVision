@@ -1,5 +1,5 @@
 ﻿"""
-SurfaceVision Master Inspection Pipeline.
+DefectVision Master Inspection Pipeline.
 Integrates preprocessing, feature extraction, segmentation, classification, and diagnostics.
 """
 import os

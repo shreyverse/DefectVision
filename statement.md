@@ -1,11 +1,11 @@
-# Project Statement: SurfaceVision
+# Project Statement: DefectVision
 
 ## 1. Problem Statement
 In high-precision manufacturing industries?such as automotive body panel fabrication, semiconductor substrate manufacturing, cold-rolled sheet metal rolling, and structural ceramics?surface quality is synonymous with mechanical durability and safety. Minute surface flaws (hairline cracks, linear scratches, micro-pinholes, and chemical stains) act as catastrophic stress concentrators leading to mechanical fatigue failure, corrosion initiation, or immediate product rejection.
 
 Traditional industrial quality control relies on manual human inspection under strobe illumination. However, manual inspection is fundamentally subjective, suffers from rapid human fatigue degradation (effective defect detection rates drop below 70% after only 20 minutes of continuous monitoring), and introduces severe throughput bottlenecks (< 2 parts per second).
 
-**SurfaceVision** solves this critical problem by providing an automated, high-throughput, deterministic Computer Vision inspection system that operates directly on standard edge CPUs. The system autonomously detects, sizes, localizes, and categorizes surface defects against challenging textured and non-uniform backgrounds at line speeds (> 70 FPS).
+**DefectVision** solves this critical problem by providing an automated, high-throughput, deterministic Computer Vision inspection system that operates directly on standard edge CPUs. The system autonomously detects, sizes, localizes, and categorizes surface defects against challenging textured and non-uniform backgrounds at line speeds (> 70 FPS).
 
 ---
 

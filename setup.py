@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="surfacevision",
+    name="defectvision",
     version="1.0.0",
     author="Rohit (Computer Vision Project)",
-    description="Automated Industrial Surface Defect Detection & Quality Assurance System",
+    description="DefectVision: Automated Industrial Surface Defect Detection & Quality Inspection System",
     packages=find_packages(),
     python_requires=">=3.8",
     install_requires=[
@@ -17,7 +17,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "surfacevision=src.cli.main:main",
+            "defectvision=src.cli.main:main",
         ],
     },
     classifiers=[

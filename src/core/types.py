@@ -1,5 +1,5 @@
 ﻿"""
-Core types and data structures for the SurfaceVision inspection system.
+Core types and data structures for the DefectVision inspection system.
 """
 from dataclasses import dataclass, field
 from enum import Enum

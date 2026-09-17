@@ -1,250 +1,419 @@
-# SurfaceVision: Automated Industrial Surface Defect Detection & Quality Assurance System
+# DefectVision: Automated Industrial Surface Defect Detection & Quality Inspection System
 
-[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![OpenCV](https://img.shields.io/badge/OpenCV-4.8%2B-green.svg)](https://opencv.org/)
-[![Scikit-Image](https://img.shields.io/badge/scikit--image-0.20%2B-orange.svg)](https://scikit-image.org/)
-[![Tests](https://img.shields.io/badge/Tests-19%20Passed%20(100%25)-brightgreen.svg)](tests/)
-[![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
+DefectVision is an automated industrial surface defect detection and quality inspection system designed to detect, segment, classify, and analyze surface defects in manufactured materials.
 
-> **Computer Vision Evaluated Project ? VITyarthi**  
-> **Course:** Computer Vision  
-> **Domain:** Industrial Machine Vision & Quality Engineering  
-> **Project Location:** `D:\SurfaceVision-CV`
+The system is designed for applications such as inspection of steel, aluminum, silicon wafers, ceramics, and other industrial surfaces where manual inspection can be slow and subjective.
 
 ---
 
-## 1. Project Overview
-**SurfaceVision** is a production-grade, high-throughput Computer Vision system engineered for real-time automated visual inspection of manufactured industrial substrates (cold-rolled steel, brushed aluminum, silicon wafers, and precision ceramics).
+## 🚀 Overview
 
-In high-speed manufacturing lines, manual human inspection is hindered by ocular fatigue, operator subjectivity, and severe throughput bottlenecks. SurfaceVision provides an autonomous, mathematically deterministic vision inspection engine that operates directly on standard CPUs without requiring expensive GPU clusters. The system reliably isolates and sizes microscopic surface flaws?including **hairline cracks, linear scratches, micro-pinholes, and diffuse chemical stains**?even against high-contrast, anisotropic brushed surface textures.
+Quality inspection in manufacturing environments often requires identifying small and difficult-to-detect surface abnormalities.
 
----
+DefectVision uses image processing and computer vision techniques to automatically identify defects such as:
 
-## 2. Key Features
-- **High Throughput Real-Time Inspection:** Sub-15ms mean processing latency per frame (**> 70 FPS** on standard multi-core CPUs), comfortably exceeding typical production line speed requirements (> 22 FPS).
-- **Edge-Preserving Noise Suppression:** Bilateral filtering preserves razor-sharp defect edges while suppressing high-frequency sensor noise.
-- **Morphological Texture Decoupling:** Combines white top-hat and black-hat morphological operators to decouple localized structural flaws from horizontal brushed grain textures.
-- **Dual-Mode Segmentation:** Seamlessly identifies high-frequency structural flaws (cracks, scratches, pinholes) via statistical sigma thresholding, alongside low-frequency diffuse anomalies (chemical stains, surface burns) via background subtraction.
-- **Marker-Controlled Watershed Separation:** Automatically isolates touching or aggregated defect regions using distance transforms and watershed segmentation.
-- **Geometric & Texture Metrology:** Extracts scale/rotation invariant Hu moments, circularity, solidity, aspect ratio, GLCM Haralick texture descriptors, and multi-orientation Gabor filter bank energy maps.
-- **Zero-Leakage Precision:** **100% precision** on pristine, defect-free surfaces, preventing costly false-alarm production halts.
-- **Autonomous CLI Suite:** 100% command-line driven interface supporting single-image inspection, batch directories, quantitative ground-truth evaluation, performance benchmarking, and automated PDF report generation.
-- **Automated Diagnostic Overlays:** Renders color-coded bounding boxes, severity badges, and 2x2 diagnostic quad dashboards (Raw Image, CLAHE/Morphological Residual, Defect Mask, Annotated Result).
+- Cracks
+- Scratches
+- Pinholes
+- Surface stains
+- Other localized surface anomalies
+
+The system processes input images, enhances defect-related features, separates defective regions from the background, extracts useful measurements, and generates visual inspection results.
 
 ---
 
-## 3. System Architecture & Workflows
+## ✨ Key Features
 
-### System Architecture Diagram
-![System Architecture](docs/diagrams/architecture_diagram.png)
+### 🔍 Automated Defect Detection
+Automatically identifies potential defects from industrial surface images.
 
-### Process Workflow
-![Process Flowchart](docs/diagrams/workflow_diagram.png)
+### 🧹 Image Preprocessing
+Uses multiple image-processing techniques to improve defect visibility:
 
-### UML Class & Component Hierarchy
-![Class Diagram](docs/diagrams/class_diagram.png)
+- Bilateral Filtering
+- Gaussian Blurring
+- CLAHE
+- Morphological Operations
+- White Top-Hat Transformation
+- Black-Hat Transformation
+
+### 🎯 Defect Segmentation
+Separates defect regions from the surrounding surface using:
+
+- Statistical Thresholding
+- Otsu Thresholding
+- Background Subtraction
+- Distance Transforms
+- Watershed Segmentation
+
+### 📐 Feature Extraction
+
+The system extracts geometric and texture-based features including:
+
+- Hu Moments
+- Circularity
+- Solidity
+- Aspect Ratio
+- GLCM / Haralick Texture Features
+- Gabor Filter Features
+
+### 🏷️ Defect Classification
+
+Detected regions can be analyzed and categorized into defect classes such as:
+
+- Crack
+- Scratch
+- Pinhole
+- Stain
+- Defect-Free Surface
+
+### 📊 Inspection Analytics
+
+The system provides:
+
+- Defect measurements
+- Bounding boxes
+- Severity information
+- Segmentation metrics
+- Classification metrics
+- IoU evaluation
+- F1-score and accuracy measurements
+
+### 🖼️ Diagnostic Visualization
+
+DefectVision generates visual inspection dashboards containing:
+
+1. Original surface image
+2. Enhanced / processed image
+3. Defect segmentation mask
+4. Annotated defect detection result
+
+### ⚡ Performance Benchmarking
+
+The project includes a benchmarking module for measuring:
+
+- Processing latency
+- Minimum and maximum latency
+- 95th percentile latency
+- Processing throughput / FPS
+
+### 📄 Automated Reports
+
+The system can generate structured PDF inspection reports containing project and experimental information.
+
+### 🧪 Automated Testing
+
+The project includes unit and integration tests using Python's `unittest` framework.
 
 ---
 
-## 4. Technologies & Tools Used
-- **Programming Language:** Python 3.8+ (tested on Python 3.14.2)
-- **Computer Vision Core:** OpenCV (`opencv-python`), Scikit-Image (`scikit-image`)
-- **Mathematical & Matrix Computing:** NumPy, SciPy
-- **Data & Metric Analytics:** Pandas
-- **Visualization & Graphics:** Matplotlib
-- **Automated Report Generation:** ReportLab, PyMuPDF, PyPDF
-- **Testing Framework:** Python `unittest` test runner
+## 🏗️ System Workflow
 
----
+```text
+             Input Surface Image
+                     │
+                     ▼
+            Image Preprocessing
+                     │
+                     ▼
+        Feature Enhancement & Filtering
+                     │
+                     ▼
+            Defect Segmentation
+                     │
+                     ▼
+           Candidate Region Detection
+                     │
+                     ▼
+          Feature Extraction
+                     │
+                     ▼
+          Defect Classification
+                     │
+                     ▼
+        Defect Measurement & Analysis
+                     │
+                     ▼
+       Visualization & Inspection Report
+       🧠 Computer Vision Pipeline
 
-## 5. Directory Structure
-```
-D:\SurfaceVision-CV\
-??? data/
-?   ??? samples/                     # Standalone sample test images (crack, scratch, etc.)
-?   ??? benchmark/                   # Benchmark dataset (images & pixel ground-truth masks)
-?       ??? images/
-?       ??? ground_truth/
-??? docs/
-?   ??? diagrams/                    # High-resolution architectural and UML diagrams
-??? output/                          # Generated inspection overlays and JSON metrics
-?   ??? inspections/
-??? reports/
-?   ??? generate_report.py           # Automated 15-section PDF report builder
-?   ??? generate_diagrams.py         # Architectural & UML diagram generator
-?   ??? SurfaceVision_Project_Report.pdf # Official project report
-??? src/
-?   ??? core/                        # Data types, dataclasses, and configuration
-?   ??? preprocessing/               # Bilateral, Gaussian, CLAHE, and top-hat filtering
-?   ??? features/                    # Hu moments, geometry, GLCM, and Gabor filter banks
-?   ??? segmentation/                # Statistical thresholding and watershed segmentation
-?   ??? classifier/                  # Defect classification & industrial severity engine
-?   ??? analytics/                   # IoU calculation, classification metrics, visual overlays
-?   ??? data_generator.py            # Synthetic industrial surface & flaw generator
-?   ??? pipeline.py                  # End-to-end master inspection pipeline
-?   ??? cli/
-?       ??? main.py                  # CLI entry point dispatcher
-??? tests/                           # 19 automated unit & integration tests
-??? requirements.txt                 # Project dependencies
-??? setup.py                         # Package installation script
-??? statement.md                     # Formal project statement and scope document
-??? README.md                        # Master repository documentation
-```
+The inspection pipeline consists of several major stages.
 
----
+1. Input
 
-## 6. Installation & Environment Setup
+The system accepts individual surface images or directories containing multiple images.
 
-Assume the evaluator starts with a clean machine or terminal environment.
+2. Preprocessing
 
-### Step 1: Clone or Navigate to the Repository
-```bash
-cd D:\SurfaceVision-CV
-```
+Noise reduction and contrast enhancement are performed using techniques such as bilateral filtering, Gaussian filtering, and CLAHE.
 
-### Step 2: (Optional) Create and Activate a Virtual Environment
-```bash
-# On Windows PowerShell
+3. Feature Enhancement
+
+Morphological operations such as white top-hat and black-hat transformations help highlight localized surface abnormalities.
+
+4. Segmentation
+
+Potential defect regions are isolated using statistical thresholding, Otsu thresholding, background subtraction, and watershed-based separation.
+
+5. Feature Extraction
+
+Geometric and texture descriptors are calculated for detected regions.
+
+6. Classification
+
+Detected regions are analyzed and categorized into relevant defect classes.
+
+7. Visualization
+
+The system generates annotated images and diagnostic dashboards showing detected defects and their measurements.
+
+🛠️ Technologies Used
+Technology	Purpose
+Python	Core programming language
+OpenCV	Computer vision and image processing
+Scikit-Image	Image processing and feature extraction
+NumPy	Numerical and matrix operations
+SciPy	Scientific computing
+Pandas	Data and metric analysis
+Matplotlib	Visualization
+ReportLab	PDF report generation
+PyMuPDF	PDF processing
+PyPDF	PDF utilities
+unittest	Automated testing
+📁 Project Structure
+DefectVision/
+│
+├── data/
+│   ├── samples/
+│   │   └── Sample surface images
+│   │
+│   └── benchmark/
+│       ├── images/
+│       └── ground_truth/
+│
+├── docs/
+│   └── diagrams/
+│       ├── architecture_diagram.png
+│       ├── workflow_diagram.png
+│       └── class_diagram.png
+│
+├── output/
+│   └── inspections/
+│
+├── reports/
+│   ├── generate_report.py
+│   ├── generate_diagrams.py
+│   └── DefectVision_Project_Report.pdf
+│
+├── src/
+│   ├── core/
+│   ├── preprocessing/
+│   ├── features/
+│   ├── segmentation/
+│   ├── classifier/
+│   ├── analytics/
+│   ├── data_generator.py
+│   ├── pipeline.py
+│   └── cli/
+│       └── main.py
+│
+├── tests/
+│
+├── requirements.txt
+├── setup.py
+├── statement.md
+├── .gitignore
+└── README.md
+⚙️ Installation
+Prerequisites
+Python 3.8+
+pip
+Windows, Linux, or macOS
+1. Clone the Repository
+git clone https://github.com/YOUR_USERNAME/DefectVision.git
+cd DefectVision
+2. Create a Virtual Environment
+Windows
 python -m venv venv
-.\venv\Scripts\Activate.ps1
-
-# On Linux / macOS
+venv\Scripts\activate
+Linux / macOS
 python3 -m venv venv
 source venv/bin/activate
-```
-
-### Step 3: Install Dependencies
-```bash
+3. Install Dependencies
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-```
+🖥️ Usage
 
----
+DefectVision provides a command-line interface for different inspection operations.
 
-## 7. CLI Execution Guide
-
-SurfaceVision is designed to be **100% executable from the command line**.
-
-### 7.1 Inspect a Single Image
-Run visual inspection on a sample image:
-```bash
+Inspect a Single Image
 python -m src.cli.main inspect --input data/samples/sample_scratch.png --output output/inspections --verbose
-```
-**Output:**
-- Generates `output/inspections/sample_scratch_annotated.png` (Bounding box overlay)
-- Generates `output/inspections/sample_scratch_quad.png` (2x2 Diagnostic Dashboard)
-- Generates `output/inspections/inspection_summary.json` (Structured telemetry)
 
-### 7.2 Inspect an Entire Directory in Batch
-Run inspection on all images in a folder:
-```bash
+The system generates inspection outputs such as:
+
+output/inspections/
+├── sample_scratch_annotated.png
+├── sample_scratch_quad.png
+└── inspection_summary.json
+Batch Image Inspection
+
+To inspect multiple images:
+
 python -m src.cli.main inspect --input data/samples --output output/inspections
-```
+Ground-Truth Evaluation
 
-### 7.3 Quantitative Ground-Truth Evaluation
-Evaluate segmentation IoU and classification accuracy against ground-truth masks:
-```bash
-python -m src.cli.main evaluate --images data/benchmark/images --ground-truth data/benchmark/ground_truth --output output/eval_results.json
-```
-**Sample Output:**
-```
-============================================================
- SurfaceVision Evaluation: Evaluating 20 Ground-Truth Samples
-============================================================
+Evaluate segmentation and classification performance:
 
-Evaluation Results Summary:
-  Total Validated Samples : 20
-  Mean IoU (Segmentation) : 0.6341
-  Overall Accuracy        : 85.00%
-  Macro F1-Score          : 0.8421
+python -m src.cli.main evaluate \
+    --images data/benchmark/images \
+    --ground-truth data/benchmark/ground_truth \
+    --output output/eval_results.json
 
-Per-Class Performance:
-  CRACK          | Precision: 0.67 | Recall: 0.50 | F1: 0.57 (n=4)
-  DEFECT_FREE    | Precision: 1.00 | Recall: 1.00 | F1: 1.00 (n=4)
-  PINHOLE        | Precision: 1.00 | Recall: 1.00 | F1: 1.00 (n=4)
-  SCRATCH        | Precision: 0.75 | Recall: 0.75 | F1: 0.75 (n=4)
-  STAIN          | Precision: 0.80 | Recall: 1.00 | F1: 0.89 (n=4)
-```
+The evaluation includes metrics such as:
 
-### 7.4 Latency & Throughput Benchmark
-Profile processing speed and FPS over repeated iterations:
-```bash
-python -m src.cli.main benchmark --iterations 30 --width 640 --height 480 --output output/benchmark_results.json
-```
-**Sample Output:**
-```
-Performance Benchmark Results:
-  Frame Resolution : 640x480
-  Mean Latency     : 13.56 ms
-  Min / Max        : 12.25 ms / 14.92 ms
-  95th Percentile  : 14.60 ms
-  Throughput (FPS) : 73.77 FPS
-```
+Mean IoU
+Accuracy
+Macro F1-score
+Per-class precision
+Per-class recall
+Performance Benchmark
 
-### 7.5 Regenerate Synthetic Benchmark Samples
-```bash
-python -m src.cli.main generate-samples --output data/benchmark --count 4
-```
+Run the processing performance benchmark:
 
-### 7.6 Compile Official Project Report PDF
-Compile the 15-section publication-quality report PDF:
-```bash
-python -m src.cli.main report --output reports/SurfaceVision_Project_Report.pdf
-```
+python -m src.cli.main benchmark \
+    --iterations 30 \
+    --width 640 \
+    --height 480 \
+    --output output/benchmark_results.json
 
----
+The benchmark measures:
 
-## 8. Automated Testing
+Mean processing latency
+Minimum latency
+Maximum latency
+95th percentile latency
+Throughput in FPS
+Generate Sample Data
 
-Run the comprehensive unit and integration test suite:
-```bash
+Generate synthetic benchmark samples:
+
+python -m src.cli.main generate-samples \
+    --output data/benchmark \
+    --count 4
+Generate Project Report
+
+Generate the project PDF report:
+
+python -m src.cli.main report \
+    --output reports/DefectVision_Project_Report.pdf
+🧪 Testing
+
+The project contains automated unit and integration tests.
+
+Run the complete test suite:
+
 python -m unittest discover -s tests -p "test_*.py" -v
-```
 
-**Results:**
-```
-test_cli_help (test_cli.TestCLI.test_cli_help) ... ok
-test_cli_inspect_single_image (test_cli.TestCLI.test_cli_inspect_single_image) ... ok
-test_extract_gabor_features (test_features.TestFeatures.test_extract_gabor_features) ... ok
-test_extract_geometric_features_circle (test_features.TestFeatures.test_extract_geometric_features_circle) ... ok
-test_extract_geometric_features_line (test_features.TestFeatures.test_extract_geometric_features_line) ... ok
-test_extract_glcm_features (test_features.TestFeatures.test_extract_glcm_features) ... ok
-test_clean_surface_inspection (test_pipeline.TestPipeline.test_clean_surface_inspection) ... ok
-test_inspect_and_visualize (test_pipeline.TestPipeline.test_inspect_and_visualize) ... ok
-test_scratch_defect_inspection (test_pipeline.TestPipeline.test_scratch_defect_inspection) ... ok
-test_apply_bilateral_filter (test_preprocessing.TestPreprocessing.test_apply_bilateral_filter) ... ok
-test_apply_clahe (test_preprocessing.TestPreprocessing.test_apply_clahe) ... ok
-test_apply_gaussian_blur (test_preprocessing.TestPreprocessing.test_apply_gaussian_blur) ... ok
-test_enhance_surface_features (test_preprocessing.TestPreprocessing.test_enhance_surface_features) ... ok
-test_morphological_transforms (test_preprocessing.TestPreprocessing.test_morphological_transforms) ... ok
-test_to_grayscale (test_preprocessing.TestPreprocessing.test_to_grayscale) ... ok
-test_extract_candidate_contours (test_segmentation.TestSegmentation.test_extract_candidate_contours) ... ok
-test_otsu_threshold (test_segmentation.TestSegmentation.test_otsu_threshold) ... ok
-test_statistical_threshold (test_segmentation.TestSegmentation.test_statistical_threshold) ... ok
-test_watershed_segmentation (test_segmentation.TestSegmentation.test_watershed_segmentation) ... ok
+The existing project contains tests covering areas including:
 
-----------------------------------------------------------------------
-Ran 19 tests in 3.144s
+CLI functionality
+Image preprocessing
+CLAHE
+Gaussian filtering
+Bilateral filtering
+Morphological operations
+Feature extraction
+Gabor features
+GLCM features
+Geometric features
+Thresholding
+Watershed segmentation
+Pipeline inspection
+📊 Evaluation
 
-OK
-```
+The existing benchmark documentation reports evaluation results on a set of 20 ground-truth samples.
 
----
+Reported metrics include:
 
-## 9. Experimental Visualizations & Results
+Mean IoU          : 0.6341
+Overall Accuracy  : 85.00%
+Macro F1-Score    : 0.8421
 
-### 2x2 Diagnostic Inspection Dashboard
-The system generates multi-panel diagnostic views for every inspected component:
-1. **Raw Surface Input:** Original camera capture.
-2. **CLAHE & Morphological Residual:** High-frequency spatial bandpass highlighting true flaws.
-3. **Defect Segmentation Mask:** Binary defect mask isolating anomaly contours.
-4. **Multi-Defect Detection & Sizing:** Colored bounding boxes with class label, confidence score, pixel dimensions, and severity ranking.
+Per-class evaluation includes:
 
----
+CRACK
+DEFECT_FREE
+PINHOLE
+SCRATCH
+STAIN
 
-## 10. Submission Artifacts Checklist
-- [x] **GitHub Repository:** Clean repository structure with `README.md` and `statement.md` at root level.
-- [x] **Command Line Executability:** Verified across all subcommands (`inspect`, `evaluate`, `benchmark`, `report`).
-- [x] **Project Report:** 15-section comprehensive PDF report generated at `reports/SurfaceVision_Project_Report.pdf`.
-- [x] **Automated Tests:** 19/19 passing unit tests covering all modules.
-- [x] **Data & Benchmarks:** Self-contained sample dataset and benchmark generator included in `data/`.
+These values represent the project's documented benchmark results and may vary depending on the environment and input data.
+
+⚡ Performance
+
+The documented benchmark uses:
+
+Frame Resolution : 640 × 480
+Mean Latency     : 13.56 ms
+95th Percentile  : 14.60 ms
+Throughput       : 73.77 FPS
+
+Actual performance can vary depending on hardware, Python version, image characteristics, and system configuration.
+
+📸 Diagnostic Output
+
+For an inspected image, DefectVision can generate a diagnostic visualization containing:
+
+┌─────────────────────┬─────────────────────┐
+│                     │                     │
+│   Original Image    │ Processed Image     │
+│                     │                     │
+├─────────────────────┼─────────────────────┤
+│                     │                     │
+│   Defect Mask       │ Annotated Result    │
+│                     │                     │
+└─────────────────────┴─────────────────────┘
+
+The annotated output provides information about detected defect regions and their characteristics.
+
+🎯 Applications
+
+DefectVision can be applied to automated quality inspection scenarios such as:
+
+Steel surface inspection
+Aluminum surface inspection
+Ceramic manufacturing
+Semiconductor surface inspection
+Industrial component inspection
+Automated quality control
+Manufacturing defect analysis
+🔮 Future Scope
+
+Possible future improvements include:
+
+Deep-learning-based defect detection
+CNN-based image classification
+YOLO-based real-time object detection
+GPU acceleration
+Live industrial camera integration
+Web-based monitoring dashboard
+Database integration for inspection history
+Automated production-line alerts
+Cloud-based inspection analytics
+Continuous model improvement using new inspection data
+👨‍💻 Project Information
+
+Project: DefectVision
+Domain: Computer Vision
+Focus: Industrial Machine Vision & Quality Inspection
+Programming Language: Python
+
+📜 License
+
+This project is released under the MIT License.
+
+⭐ Project Summary
+
+DefectVision demonstrates how classical Computer Vision and image-processing techniques can be combined to create an automated industrial surface inspection pipeline.
+
+The system integrates preprocessing, feature enhancement, segmentation, feature extraction, classification, analytics, visualization, benchmarking, testing, and automated reporting into a single inspection workflow.

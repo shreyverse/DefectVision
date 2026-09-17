@@ -1,1 +1,1 @@
-﻿"""SurfaceVision CLI module"""
+﻿"""DefectVision CLI module."""

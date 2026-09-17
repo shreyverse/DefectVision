@@ -5,7 +5,7 @@ import os
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
-OUTPUT_DIR = "D:/SurfaceVision-CV/docs/diagrams"
+OUTPUT_DIR = "D:/CV_Project/DefectVision/docs/diagrams"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
@@ -24,7 +24,7 @@ def generate_architecture_diagram():
     c_bg = "#EDF2F7"
 
     # Title
-    ax.text(50, 95, "SurfaceVision: System Architecture", ha="center", va="center", fontsize=14, fontweight="bold", color="#1A202C")
+    ax.text(50, 95, "DefectVision: System Architecture", ha="center", va="center", fontsize=14, fontweight="bold", color="#1A202C")
 
     # Layer 1: Ingestion
     ax.add_patch(patches.FancyBboxPatch((5, 68), 26, 20, boxstyle="round,pad=1", ec=c_blue, fc=c_bg, lw=2))
@@ -87,7 +87,7 @@ def generate_workflow_diagram():
     ax.set_ylim(0, 100)
     ax.axis("off")
 
-    ax.text(50, 95, "SurfaceVision: Process Flowchart", ha="center", fontsize=14, fontweight="bold", color="#1A202C")
+    ax.text(50, 95, "DefectVision: Process Flowchart", ha="center", fontsize=14, fontweight="bold", color="#1A202C")
 
     steps = [
         ("Acquire Frame", 10, "#3182CE"),
@@ -123,11 +123,11 @@ def generate_uml_usecase_diagram():
     ax.set_ylim(0, 100)
     ax.axis("off")
 
-    ax.text(50, 95, "UML Use Case Diagram: SurfaceVision", ha="center", fontsize=14, fontweight="bold", color="#1A202C")
+    ax.text(50, 95, "UML Use Case Diagram: DefectVision", ha="center", fontsize=14, fontweight="bold", color="#1A202C")
 
     # Boundary Box
     ax.add_patch(patches.Rectangle((25, 5), 70, 85, ec="#718096", fc="#F8FAFC", lw=1.5))
-    ax.text(60, 86, "SurfaceVision System Boundary", ha="center", fontsize=10, fontweight="bold", color="#4A5568")
+    ax.text(60, 86, "DefectVision System Boundary", ha="center", fontsize=10, fontweight="bold", color="#4A5568")
 
     # Actor: Quality Engineer / Automated Rig
     ax.plot([12, 12], [55, 65], color="#2D3748", lw=3) # Body
@@ -169,7 +169,7 @@ def generate_uml_class_diagram():
     # Pipeline Class Box
     ax.add_patch(patches.Rectangle((5, 45), 38, 42, ec="#2B6CB0", fc="#F7FAFC", lw=2))
     ax.add_patch(patches.Rectangle((5, 75), 38, 12, ec="#2B6CB0", fc="#EBF8FF", lw=1))
-    ax.text(24, 81, "SurfaceVisionPipeline", ha="center", va="center", fontsize=10, fontweight="bold", color="#2B6CB0")
+    ax.text(24, 81, "DefectVision Pipeline", ha="center", va="center", fontsize=10, fontweight="bold", color="#2B6CB0")
     ax.text(7, 65, "+ config: InspectionConfig\n+ classifier: DefectClassifier\n\n+ load_image(src): ndarray\n+ process(src): (Result, dict)\n+ inspect_and_visualize()", fontsize=8)
 
     # DefectRegion Box
@@ -206,7 +206,7 @@ def generate_sequence_diagram():
     ax.set_ylim(0, 100)
     ax.axis("off")
 
-    ax.text(50, 95, "UML Sequence Diagram: Surface Inspection Execution", ha="center", fontsize=13, fontweight="bold", color="#1A202C")
+    ax.text(50, 95, "UML Sequence Diagram: DefectVision Execution", ha="center", fontsize=13, fontweight="bold", color="#1A202C")
 
     lifelines = [
         ("User / CLI", 12),

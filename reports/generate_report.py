@@ -41,7 +41,7 @@ class NumberedCanvas(canvas.Canvas):
                 self.saveState()
                 self.setFont("Helvetica", 8)
                 self.setFillColor(colors.HexColor("#4A5568"))
-                self.drawString(54, 11 * inch - 36, "SurfaceVision: Industrial Surface Defect Inspection System | Computer Vision")
+                self.drawString(54, 11 * inch - 36, "DefectVision: Industrial Surface Defect Inspection System | Computer Vision")
                 self.setStrokeColor(colors.HexColor("#CBD5E0"))
                 self.setLineWidth(0.5)
                 self.line(54, 11 * inch - 40, 8.5 * inch - 54, 11 * inch - 40)
@@ -54,7 +54,7 @@ class NumberedCanvas(canvas.Canvas):
         super().save()
 
 
-def build_pdf_report(output_filename: str = "reports/SurfaceVision_Project_Report.pdf") -> str:
+def build_pdf_report(output_filename: str = "reports/DefectVision_Project_Report.pdf") -> str:
     os.makedirs(os.path.dirname(os.path.abspath(output_filename)), exist_ok=True)
     doc = SimpleDocTemplate(
         output_filename,
@@ -146,8 +146,8 @@ def build_pdf_report(output_filename: str = "reports/SurfaceVision_Project_Repor
     # SECTION 1: COVER PAGE
     story.append(Spacer(1, 30))
     story.append(Paragraph("VITyarthi - Flipped Course Project", subtitle_style))
-    story.append(Paragraph("SURFACEVISION", title_style))
-    story.append(Paragraph("Automated Industrial Surface Defect Detection & Quality Assurance System", ParagraphStyle(
+    story.append(Paragraph("DEFECTVISION", title_style))
+    story.append(Paragraph("Automated Industrial Surface Defect Detection & Quality Inspection System", ParagraphStyle(
         "CoverDesc", parent=subtitle_style, fontSize=12, textColor=colors.HexColor("#2D3748"), spaceAfter=25
     )))
     story.append(HRFlowable(width="100%", thickness=2, color=colors.HexColor("#2B6CB0"), spaceAfter=30))
@@ -173,7 +173,7 @@ def build_pdf_report(output_filename: str = "reports/SurfaceVision_Project_Repor
 
     story.append(Spacer(1, 30))
     story.append(Paragraph(
-        "<b>Abstract:</b> SurfaceVision is a modular, high-throughput computer vision pipeline designed for real-time automated visual inspection of manufactured industrial surfaces (brushed steel, metallic sheets, ceramics). The system isolates microscopic and structural surface flaws-including cracks, linear scratches, micro-pinholes, and diffuse chemical stains-against challenging textured backgrounds. Leveraging edge-preserving bilateral smoothing, Contrast-Limited Adaptive Histogram Equalization (CLAHE), morphological top-hat/black-hat residual dynamics, marker-controlled watershed segmentation, and Gray-Level Co-occurrence Matrix (GLCM) Haralick texture descriptors, SurfaceVision achieves over 85% multi-class categorization accuracy and sub-15ms frame latencies (>70 FPS) on standard x86 CPU architectures without requiring GPU hardware.",
+        "<b>Abstract:</b> DefectVision is a modular, high-throughput computer vision pipeline designed for real-time automated visual inspection of manufactured industrial surfaces (brushed steel, metallic sheets, ceramics). The system isolates microscopic and structural surface flaws-including cracks, linear scratches, micro-pinholes, and diffuse chemical stains-against challenging textured backgrounds. Leveraging edge-preserving bilateral smoothing, Contrast-Limited Adaptive Histogram Equalization (CLAHE), morphological top-hat/black-hat residual dynamics, marker-controlled watershed segmentation, and Gray-Level Co-occurrence Matrix (GLCM) Haralick texture descriptors, DefectVision achieves over 85% multi-class categorization accuracy and sub-15ms frame latencies (>70 FPS) on standard x86 CPU architectures without requiring GPU hardware.",
         callout_style
     ))
     story.append(PageBreak())
@@ -190,7 +190,7 @@ def build_pdf_report(output_filename: str = "reports/SurfaceVision_Project_Repor
         body_style
     ))
     story.append(Paragraph(
-        "<b>SurfaceVision</b> addresses these challenges through a mathematically grounded computer vision framework. By decomposing the visual inspection problem into distinct stages-photometric illumination compensation, spatial texture decoupling, multi-stage contour morphology, and geometric-radiometric decision theory-the pipeline delivers deterministic defect localization, dimensional sizing, and severity grading at production-line speeds.",
+        "<b>DefectVision</b> addresses these challenges through a mathematically grounded computer vision framework. By decomposing the visual inspection problem into distinct stages-photometric illumination compensation, spatial texture decoupling, multi-stage contour morphology, and geometric-radiometric decision theory-the pipeline delivers deterministic defect localization, dimensional sizing, and severity grading at production-line speeds.",
         body_style
     ))
 
@@ -257,47 +257,47 @@ def build_pdf_report(output_filename: str = "reports/SurfaceVision_Project_Repor
     story.append(Paragraph("6. System Architecture", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E0"), spaceAfter=6))
     story.append(Paragraph(
-        "The architecture of SurfaceVision follows a strictly decoupled, layered pipeline model. Each functional layer consumes strongly typed domain objects and produces enriched intermediate representations.",
+        "The architecture of DefectVision follows a strictly decoupled, layered pipeline model. Each functional layer consumes strongly typed domain objects and produces enriched intermediate representations.",
         body_style
     ))
-    arch_img_path = "D:/SurfaceVision-CV/docs/diagrams/architecture_diagram.png"
+    arch_img_path = "D:/CV_Project/DefectVision/docs/diagrams/architecture_diagram.png"
     if os.path.exists(arch_img_path):
         story.append(Image(arch_img_path, width=6.2 * inch, height=3.6 * inch))
-        story.append(Paragraph("<i>Figure 1: SurfaceVision Multi-Layer Architectural Framework.</i>", ParagraphStyle("FigCap", parent=body_style, fontSize=7.5, alignment=1)))
+        story.append(Paragraph("<i>Figure 1: DefectVision Multi-Layer Architectural Framework.</i>", ParagraphStyle("FigCap", parent=body_style, fontSize=7.5, alignment=1)))
 
     # SECTION 7: DESIGN DIAGRAMS
     story.append(Paragraph("7. Design Diagrams", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E0"), spaceAfter=6))
     story.append(Paragraph("<b>7.1 Process Flowchart</b>", h2_style))
-    wf_img_path = "D:/SurfaceVision-CV/docs/diagrams/workflow_diagram.png"
+    wf_img_path = "D:/CV_Project/DefectVision/docs/diagrams/workflow_diagram.png"
     if os.path.exists(wf_img_path):
         story.append(Image(wf_img_path, width=6.2 * inch, height=3.0 * inch))
         story.append(Paragraph("<i>Figure 2: End-to-End Image Processing Workflow.</i>", ParagraphStyle("FigCap2", parent=body_style, fontSize=7.5, alignment=1)))
 
     story.append(PageBreak())
     story.append(Paragraph("<b>7.2 UML Use Case Diagram</b>", h2_style))
-    uc_img_path = "D:/SurfaceVision-CV/docs/diagrams/usecase_diagram.png"
+    uc_img_path = "D:/CV_Project/DefectVision/docs/diagrams/usecase_diagram.png"
     if os.path.exists(uc_img_path):
         story.append(Image(uc_img_path, width=5.8 * inch, height=3.5 * inch))
         story.append(Paragraph("<i>Figure 3: UML Use Case Diagram for Factory Automation Role.</i>", ParagraphStyle("FigCap3", parent=body_style, fontSize=7.5, alignment=1)))
 
     story.append(Spacer(1, 8))
     story.append(Paragraph("<b>7.3 UML Class / Component Diagram</b>", h2_style))
-    class_img_path = "D:/SurfaceVision-CV/docs/diagrams/class_diagram.png"
+    class_img_path = "D:/CV_Project/DefectVision/docs/diagrams/class_diagram.png"
     if os.path.exists(class_img_path):
         story.append(Image(class_img_path, width=5.8 * inch, height=3.4 * inch))
         story.append(Paragraph("<i>Figure 4: UML Class Hierarchy and Component Data Contracts.</i>", ParagraphStyle("FigCap4", parent=body_style, fontSize=7.5, alignment=1)))
 
     story.append(PageBreak())
     story.append(Paragraph("<b>7.4 UML Sequence Diagram</b>", h2_style))
-    seq_img_path = "D:/SurfaceVision-CV/docs/diagrams/sequence_diagram.png"
+    seq_img_path = "D:/CV_Project/DefectVision/docs/diagrams/sequence_diagram.png"
     if os.path.exists(seq_img_path):
         story.append(Image(seq_img_path, width=6.0 * inch, height=3.5 * inch))
         story.append(Paragraph("<i>Figure 5: UML Sequence Diagram of Inspection Invocation.</i>", ParagraphStyle("FigCap5", parent=body_style, fontSize=7.5, alignment=1)))
 
     story.append(Paragraph("<b>7.5 Data Storage & Schema Design</b>", h2_style))
     story.append(Paragraph(
-        "SurfaceVision employs a structured JSON inspection schema for telemetry and persistent inspection logging. Every frame produces a serialized record capturing timestamps, bounding boxes, centroid coordinates, geometric invariants, texture descriptors, classification confidence, and assigned severity.",
+        "DefectVision employs a structured JSON inspection schema for telemetry and persistent inspection logging. Every frame produces a serialized record capturing timestamps, bounding boxes, centroid coordinates, geometric invariants, texture descriptors, classification confidence, and assigned severity.",
         body_style
     ))
     story.append(Paragraph(
@@ -365,7 +365,7 @@ def build_pdf_report(output_filename: str = "reports/SurfaceVision_Project_Repor
         body_style
     ))
 
-    sample_quad_path = "D:/SurfaceVision-CV/output/inspections/sample_scratch_quad.png"
+    sample_quad_path = "D:/CV_Project/DefectVision/output/inspections/sample_scratch_quad.png"
     if os.path.exists(sample_quad_path):
         story.append(Image(sample_quad_path, width=6.0 * inch, height=3.5 * inch))
         story.append(Paragraph("<i>Figure 6: Diagnostic 2x2 Dashboard for Surface Scratch: (1) Raw Surface, (2) CLAHE & Morphological Residual, (3) Binarized Mask, (4) Annotated Defect with Bounding Box and Severity Tag.</i>", ParagraphStyle("FigCap6", parent=body_style, fontSize=7.5, alignment=1)))
@@ -402,8 +402,8 @@ def build_pdf_report(output_filename: str = "reports/SurfaceVision_Project_Repor
         body_style
     ))
     story.append(Paragraph("- <b>Automated Unit Test Suite:</b> 19 comprehensive unit tests spanning preprocessing filters, morphology transforms, GLCM/Gabor feature calculations, watershed segmentation, end-to-end pipeline execution, and CLI argument parsing. All 19 tests pass with 100% success rate (3.14s runtime).", body_style))
-    story.append(Paragraph("- <b>Ground-Truth Quantitative Evaluation:</b> Evaluated on 20 balanced benchmark samples with pixel-accurate ground truth masks across all 5 defect categories. Metrics computed automatically via <code>surfacevision evaluate</code>.", body_style))
-    story.append(Paragraph("- <b>Latency & Stress Benchmarking:</b> 30 continuous iterations measuring minimum, maximum, mean, and 95th percentile frame latencies via <code>surfacevision benchmark</code>.", body_style))
+    story.append(Paragraph("- <b>Ground-Truth Quantitative Evaluation:</b> Evaluated on 20 balanced benchmark samples with pixel-accurate ground truth masks across all 5 defect categories. Metrics computed automatically via <code>defectvision evaluate</code>.", body_style))
+    story.append(Paragraph("- <b>Latency & Stress Benchmarking:</b> 30 continuous iterations measuring minimum, maximum, mean, and 95th percentile frame latencies via <code>defectvision benchmark</code>.", body_style))
 
     # SECTION 12: CHALLENGES FACED
     story.append(Paragraph("12. Challenges Faced & Solutions", h1_style))
@@ -456,5 +456,5 @@ def build_pdf_report(output_filename: str = "reports/SurfaceVision_Project_Repor
 
 
 if __name__ == "__main__":
-    out = build_pdf_report("reports/SurfaceVision_Project_Report.pdf")
+    out = build_pdf_report("reports/DefectVision_Project_Report.pdf")
     print(f"Report generated successfully: {out}")

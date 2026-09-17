@@ -1,5 +1,5 @@
 ﻿"""
-Command-Line Interface (CLI) for SurfaceVision Industrial Inspection System.
+Command-Line Interface (CLI) for DefectVision Industrial Inspection System.
 Provides commands for inspection, batch evaluation, latency benchmarking, and sample generation.
 """
 import argparse
@@ -39,7 +39,7 @@ def cmd_inspect(args: argparse.Namespace) -> int:
         return 0
 
     print(f"\n============================================================")
-    print(f" SurfaceVision Inspection Engine: Processing {len(targets)} image(s)")
+    print(f" DefectVision Inspection Engine: Processing {len(targets)} image(s)")
     print(f"============================================================")
 
     all_results = []
@@ -90,7 +90,7 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
         return 1
 
     print(f"\n============================================================")
-    print(f" SurfaceVision Evaluation: Evaluating {len(img_files)} Ground-Truth Samples")
+    print(f" DefectVision Evaluation: Evaluating {len(img_files)} Ground-Truth Samples")
     print(f"============================================================")
 
     ious = []
@@ -159,7 +159,7 @@ def cmd_benchmark(args: argparse.Namespace) -> int:
     n = args.iterations
 
     print(f"\n============================================================")
-    print(f" SurfaceVision Benchmark: Measuring Latency over {n} frames ({w}x{h})")
+    print(f" DefectVision Benchmark: Measuring Latency over {n} frames ({w}x{h})")
     print(f"============================================================")
 
     # Warmup
@@ -228,8 +228,8 @@ def cmd_report(args: argparse.Namespace) -> int:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        prog="surfacevision",
-        description="SurfaceVision: Automated Industrial Surface Defect Detection & Quality Assurance CLI"
+        prog="defectvision",
+        description="DefectVision: Automated Industrial Surface Defect Detection & Quality Inspection CLI"
     )
     subparsers = parser.add_subparsers(dest="command", help="Available subcommands")
 
@@ -260,7 +260,7 @@ def main() -> None:
 
     # report
     p_rep = subparsers.add_parser("report", help="Generate official 15-section project report PDF")
-    p_rep.add_argument("--output", "-o", default="reports/SurfaceVision_Project_Report.pdf", help="Target PDF path")
+    p_rep.add_argument("--output", "-o", default="reports/DefectVision_Project_Report.pdf", help="Target PDF path")
 
     args = parser.parse_args()
     if not args.command:
